@@ -12,9 +12,7 @@ The project presents a VR-based vision-language assistant that allows users to s
 
 The system combines a Unity VR environment, voice input, object selection, SAM-based segmentation, and Qwen2.5-VL reasoning. The goal is to support object understanding and task guidance inside a virtual kitchen scenario.
 
-<p align="center">
-  <img src="figures/unity_environment2.png" width="80%">
-</p>
+![Environment](Figures/unity_environment2.png)
 
 The prototype allows users to interact with task-relevant objects in a VR kitchen environment. When an object is selected, the system captures the scene, isolates the selected object, processes the user question, and returns a context-aware response.
 
@@ -24,9 +22,7 @@ The prototype allows users to interact with task-relevant objects in a VR kitche
 
 The framework connects the Unity VR client with a Python backend. Unity handles the VR environment, object selection, scene capture, voice input, and feedback display. The Python backend performs object localization, segmentation, and vision-language reasoning.
 
-<p align="center">
-  <img src="figures/system_architecture.png" width="90%">
-</p>
+![Architecture](Figures/system_architecture.png)
 
 The main pipeline includes:
 
@@ -45,9 +41,7 @@ The main pipeline includes:
 
 The following images show examples of the interaction flow. The user selects an object, asks a question, and receives feedback from the assistant.
 
-<p align="center">
-  <img src="figures/vr_feedback_sequence.png" width="90%">
-</p>
+![Interaction](Figures/vr_feedback_sequence.png)
 
 Example questions include:
 
@@ -62,9 +56,7 @@ Example questions include:
 
 The system uses the selected object region to generate visual inputs for the vision-language model. The process includes the full scene, selected object crop, binary mask, mask overlay, and segmented object crop.
 
-<p align="center">
-  <img src="figures/process_example.png" width="90%">
-</p>
+![Processing](Figures/process_example.png)
 
 This step helps the model focus on the selected object while still preserving the full scene context.
 
@@ -74,9 +66,8 @@ This step helps the model focus on the selected object while still preserving th
 
 The Unity application communicates with the Python backend through an HTTPS tunnel. The backend receives the scene image and user question, processes the selected object, and returns a structured JSON response.
 
-<p align="center">
-  <img src="figures/ngrok_connection.png" width="80%">
-</p>
+
+![Communication](Figures/ngrok_connection.png)
 
 The returned response may include:
 
@@ -111,13 +102,9 @@ The evaluation metrics include:
 
 The assisted condition reduced both task completion time and the number of steps compared with the baseline condition.
 
-<p align="center">
-  <img src="figures/task_completion_time_by_vr_experience.png" width="75%">
-</p>
+![Evaluation 1](Figures/task_completion_time_by_vr_experience.png)
+![Evaluation 2](Figures/task_steps_by_vr_experience.png)
 
-<p align="center">
-  <img src="figures/task_steps_by_vr_experience.png" width="75%">
-</p>
 
 The evaluation showed that the assistant helped participants complete the task more efficiently while providing mostly accurate and relevant responses.
 
@@ -143,15 +130,10 @@ The evaluation showed that the assistant helped participants complete the task m
 
 ## Models Used
 
-The prototype uses the following models:
+We use the following models:
 
 - **Segment Anything Model (SAM)** for selected object segmentation.
 - **Qwen2.5-VL** for multimodal reasoning and question answering.
 
-Model weights are not included in this repository. Please download them from their official sources.
-
 ---
 
-## Notes
-
-This repository is provided as supplementary material for research review. The code and evaluation files are intended to document the system implementation, visual pipeline, and evaluation process used in the paper.
